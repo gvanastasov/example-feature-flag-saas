@@ -131,3 +131,8 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+
+# Ignore SQLite database files
+*.db
+*.db-shm
+*.db-wal
