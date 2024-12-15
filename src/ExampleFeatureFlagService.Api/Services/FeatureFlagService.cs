@@ -1,9 +1,9 @@
 using ExampleFeatureFlagService.Api.Interfaces;
-using FeatureFlagService.Api.Data;
-using FeatureFlagService.Api.Models;
+using ExampleFeatureFlagService.Api.Data;
+using ExampleFeatureFlagService.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FeatureFlagService.Api.Services;
+namespace ExampleFeatureFlagService.Api.Services;
 
 public class FeatureFlagService : IFeatureFlagService
 {

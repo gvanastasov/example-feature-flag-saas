@@ -1,4 +1,4 @@
-using FeatureFlagService.Api.Models;
+using ExampleFeatureFlagService.Api.Models;
 
 namespace ExampleFeatureFlagService.Api.Interfaces;
 

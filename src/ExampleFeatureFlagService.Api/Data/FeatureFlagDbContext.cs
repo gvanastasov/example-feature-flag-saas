@@ -1,7 +1,7 @@
-using FeatureFlagService.Api.Models;
+using ExampleFeatureFlagService.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FeatureFlagService.Api.Data;
+namespace ExampleFeatureFlagService.Api.Data;
 
 public class FeatureFlagDbContext : DbContext
 {

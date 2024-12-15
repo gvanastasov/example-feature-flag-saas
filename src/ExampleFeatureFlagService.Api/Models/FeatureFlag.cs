@@ -1,4 +1,4 @@
-namespace FeatureFlagService.Api.Models;
+namespace ExampleFeatureFlagService.Api.Models;
 
 public class FeatureFlag
 {
