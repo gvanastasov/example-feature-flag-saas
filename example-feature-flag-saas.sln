@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A0BD68FE-21B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleFeatureFlagService.Api", "src\ExampleFeatureFlagService.Api\ExampleFeatureFlagService.Api.csproj", "{7C92F964-8106-4EE2-AEF6-FEDCFB191F54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFeatureFlagService.Client", "src\ExampleFeatureFlagService.Client\ExampleFeatureFlagService.Client.csproj", "{761C4B67-41D2-437B-B249-A8A7339CE231}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{7C92F964-8106-4EE2-AEF6-FEDCFB191F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C92F964-8106-4EE2-AEF6-FEDCFB191F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C92F964-8106-4EE2-AEF6-FEDCFB191F54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761C4B67-41D2-437B-B249-A8A7339CE231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761C4B67-41D2-437B-B249-A8A7339CE231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761C4B67-41D2-437B-B249-A8A7339CE231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761C4B67-41D2-437B-B249-A8A7339CE231}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7C92F964-8106-4EE2-AEF6-FEDCFB191F54} = {A0BD68FE-21B1-498E-8AA1-5DDBC74CD9D3}
+		{761C4B67-41D2-437B-B249-A8A7339CE231} = {A0BD68FE-21B1-498E-8AA1-5DDBC74CD9D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6EA95D97-D35F-4386-87B5-CC7362EAA077}
