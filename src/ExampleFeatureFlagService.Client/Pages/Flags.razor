@@ -1,0 +1,78 @@
+@page "/flags"
+@using ExampleFeatureFlagService.Client.Models
+@inject ExampleFeatureFlagService.Client.Services.FeatureFlagService FlagService
+
+<h3>Feature Flags</h3>
+
+<button class="btn btn-primary" @onclick="ShowAddFlagModal">Add Flag</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Enabled</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var flag in featureFlags)
+        {
+            <tr>
+                <td>@flag.Name</td>
+                <td>@flag.Description</td>
+                <td>@(flag.IsEnabled ? "Yes" : "No")</td>
+                <td>
+                    <button class="btn btn-secondary" @onclick="() => ShowEditFlagModal(flag)">Edit</button>
+                    <button class="btn btn-danger" @onclick="() => DeleteFlag(flag.Id)">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* <FlagModal ShowModal="showModal" EditingFlag="editingFlag" OnSave="SaveFlag" /> *@
+
+@code {
+    private List<FeatureFlag> featureFlags = new();
+    private FeatureFlag? editingFlag;
+    private bool showModal = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        featureFlags = await FlagService.GetFlagsAsync();
+    }
+
+    private void ShowAddFlagModal()
+    {
+        editingFlag = new FeatureFlag();
+        showModal = true;
+    }
+
+    private void ShowEditFlagModal(FeatureFlag flag)
+    {
+        editingFlag = flag;
+        showModal = true;
+    }
+
+    private async Task SaveFlag()
+    {
+        if (editingFlag!.Id == 0)
+        {
+            await FlagService.CreateFlagAsync(editingFlag);
+        }
+        else
+        {
+            await FlagService.UpdateFlagAsync(editingFlag);
+        }
+
+        featureFlags = await FlagService.GetFlagsAsync();
+        showModal = false;
+    }
+
+    private async Task DeleteFlag(int id)
+    {
+        await FlagService.DeleteFlagAsync(id);
+        featureFlags = await FlagService.GetFlagsAsync();
+    }
+}
