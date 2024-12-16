@@ -14,6 +14,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFeatureFlagService, FeatureFlagService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://localhost:5296") // Replace with your client app's URL
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+});
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -28,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowSpecificOrigin");
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
