@@ -31,7 +31,7 @@
     </tbody>
 </table>
 
-@* <FlagModal ShowModal="showModal" EditingFlag="editingFlag" OnSave="SaveFlag" /> *@
+<FlagModal ShowModal="showModal" EditingFlag="editingFlag" OnSave="SaveFlag" />
 
 @code {
     private List<FeatureFlag> featureFlags = new();
@@ -47,6 +47,7 @@
     {
         editingFlag = new FeatureFlag();
         showModal = true;
+        Console.WriteLine("ShowAddFlagModal called. showModal: " + showModal);
     }
 
     private void ShowEditFlagModal(FeatureFlag flag)

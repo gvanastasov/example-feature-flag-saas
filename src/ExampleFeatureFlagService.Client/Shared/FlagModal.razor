@@ -3,26 +3,44 @@
 @if (ShowModal)
 {
     <div class="modal-backdrop">
-        <div class="modal">
-            <h3>@(EditingFlag!.Id == 0 ? "Add Feature Flag" : "Edit Feature Flag")</h3>
+        <div class="modal" style="display: block">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLiveLabel">@(EditingFlag!.Id == 0 ? "Add Feature Flag" : "Edit Feature Flag")</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group mb-2">
+                            <label for="flagName">Name:</label>
+                            <input type="text" id="flagName" class="form-control" @bind="EditingFlag.Name" />
+                        </div>
 
-            <label>Name:</label>
-            <input type="text" @bind="EditingFlag.Name" />
+                        <div class="form-group mb-2">
+                            <label for="flagDescription">Description:</label>
+                            <textarea id="flagDescription" class="form-control" @bind="EditingFlag.Description"></textarea>
+                        </div>
 
-            <label>Description:</label>
-            <textarea @bind="EditingFlag.Description"></textarea>
+                        <div class="form-group mb-2">
+                            <label for="flagEnvironment">Environment:</label>
+                            <input type="text" id="flagEnvironment" class="form-control" @bind="EditingFlag.Environment" />
+                        </div>
 
-            <label>Enabled:</label>
-            <input type="checkbox" @bind="EditingFlag.IsEnabled" />
+                        <div class="form-group mb-2">
+                            <label for="flagApplication">Application:</label>
+                            <input type="text" id="flagApplication" class="form-control" @bind="EditingFlag.Application" />
+                        </div>
 
-            <label>Environment:</label>
-            <input type="text" @bind="EditingFlag.Environment" />
-
-            <label>Application:</label>
-            <input type="text" @bind="EditingFlag.Application" />
-
-            <button class="btn btn-primary" @onclick="SaveFlag">Save</button>
-            <button class="btn btn-secondary" @onclick="CloseModal">Cancel</button>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flagEnabled" @bind="EditingFlag.IsEnabled">
+                            <label class="form-check-label" for="flagEnabled">Enabled</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="CloseModal">Cancel</button>
+                        <button type="button" class="btn btn-primary" @onclick="SaveFlag">Save</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 }
