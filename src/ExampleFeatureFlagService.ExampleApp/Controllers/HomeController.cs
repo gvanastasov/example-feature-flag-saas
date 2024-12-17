@@ -1,31 +1,25 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ExampleFeatureFlagService.ExampleApp.Models;
+using ExampleFeatureFlagService.ExampleApp.Services;
 
 namespace ExampleFeatureFlagService.ExampleApp.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly FeatureFlagService _flagService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(FeatureFlagService flagService)
     {
-        _logger = logger;
+        _flagService = flagService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
-    }
+        // Fetch feature flags from the API
+        var flags = await _flagService.GetFlagsAsync();
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        // Pass them to the view
+        return View(flags);
     }
 }

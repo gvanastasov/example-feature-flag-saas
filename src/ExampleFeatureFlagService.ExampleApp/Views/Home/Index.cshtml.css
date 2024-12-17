@@ -1,0 +1,19 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.flex-item {
+    flex: 1 1 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.old-feature {
+    background-color: #f8d7da;
+}
+
+.new-feature {
+    background-color: #d4edda;
+}

@@ -1,8 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<ExampleFeatureFlagService.ExampleApp.Models.FeatureFlag>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Example Application</h1>
+
+<h3>Conditional Features</h3>
+<div class="d-flex">
+    <div class="flex-item old-feature">
+        Some old feature. 🚫
+    </div>
+    @if (Model.Any(f => f.Name == "NewFeature" && f.IsEnabled))
+    {
+        <div class="flex-item new-feature">
+            The new feature is enabled! 🎉
+        </div>
+    }
 </div>
