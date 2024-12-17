@@ -3,9 +3,9 @@
 This is a demo project that shows working components of a SaaS solution to **Feature Flagging**. In a nutshell - nothing really special (this is not about you, Microsoft) - but just a showcase of how to utilize simple booleans (and meta around them) as a dedicated service. The service allows managing feature flags that can be used to enable or disable specific features in an application dynamically, without redeploying code. The project demonstrates a complete solution, including a backend API, a client management application, an example application, and an SDK for reuse.
 
 <div style="display: flex; justify-content: space-around;">
-    <img src=".github/effs-manager.png" alt="EFFS-Manager" style="width: 30%;"/>
-    <img src=".github/effs-api.png" alt="EFFS-API" style="width: 30%;"/>
-    <img src=".github/effs-app.png" alt="EFFS-APP" style="width: 30%;"/>
+    <img src=".github/effs-manager.png" alt="EFFS-Manager" style="width: 30%; height:150px;"/>
+    <img src=".github/effs-api.png" alt="EFFS-API" style="width: 30%;height:150px;"/>
+    <img src=".github/effs-app.png" alt="EFFS-APP" style="width: 30%;height:150px;"/>
 </div>
 
 ## Project Structure
