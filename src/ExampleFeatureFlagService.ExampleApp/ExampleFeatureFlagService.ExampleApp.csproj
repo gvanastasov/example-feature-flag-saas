@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Net.Http.Json" Version="9.0.0" />
+    <PackageReference Include="ExampleFeatureFlagService.SDK" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

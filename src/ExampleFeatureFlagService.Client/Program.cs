@@ -1,20 +1,13 @@
-using System.Net.Http.Headers;
 using ExampleFeatureFlagService.Client;
-using ExampleFeatureFlagService.Client.Services;
+using ExampleFeatureFlagService.SDK.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddHttpClient("FeatureFlagService", client =>
-{
-    client.BaseAddress = new Uri("http://localhost:5048/");
-    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-});
-
-builder.Services.AddScoped<FeatureFlagService>();
+var httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:5048/") };
+builder.Services.AddScoped(sp => new FeatureFlagService(httpClient));
 
 await builder.Build().RunAsync();

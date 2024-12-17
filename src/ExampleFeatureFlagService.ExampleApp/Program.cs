@@ -1,13 +1,11 @@
-using ExampleFeatureFlagService.ExampleApp.Services;
+
+using ExampleFeatureFlagService.SDK.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient<FeatureFlagService>(client =>
-{
-    client.BaseAddress = new Uri("http://localhost:5048/");
-});
-
+var httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:5048/") };
+builder.Services.AddScoped(sp => new FeatureFlagService(httpClient));
 
 var app = builder.Build();
 

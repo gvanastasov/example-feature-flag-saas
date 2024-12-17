@@ -1,7 +1,5 @@
-using System.Diagnostics;
+using ExampleFeatureFlagService.SDK.Services;
 using Microsoft.AspNetCore.Mvc;
-using ExampleFeatureFlagService.ExampleApp.Models;
-using ExampleFeatureFlagService.ExampleApp.Services;
 
 namespace ExampleFeatureFlagService.ExampleApp.Controllers;
 
