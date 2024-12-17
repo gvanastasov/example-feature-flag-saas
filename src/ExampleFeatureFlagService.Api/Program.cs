@@ -2,6 +2,7 @@ using ExampleFeatureFlagService.Api.Interfaces;
 using ExampleFeatureFlagService.Api.Data;
 using ExampleFeatureFlagService.Api.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,15 @@ builder.Services.AddDbContext<FeatureFlagDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "EFFS.Api",
+        Version = "v1",
+        Description = "An API to manage feature flags for the Example Feature Flag Service."
+    });
+});
 
 builder.Services.AddScoped<IFeatureFlagService, FeatureFlagService>();
 
@@ -33,7 +42,9 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options => {
+        options.DocumentTitle = "EFFS.Api";
+    });
 }
 
 app.UseCors("AllowSpecificOrigin");
