@@ -3,8 +3,8 @@
 }
 
 .top-row {
+    background-color: #dc3545;
     min-height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
 }
 
 .navbar-brand {

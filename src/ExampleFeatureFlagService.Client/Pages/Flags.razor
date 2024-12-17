@@ -4,7 +4,13 @@
 
 <h3>Feature Flags</h3>
 
-<button class="btn btn-primary" @onclick="ShowAddFlagModal">Add Flag</button>
+@* <button class="btn btn-primary" @onclick="ShowAddFlagModal"></button> *@
+
+<div class="top-right-button">
+    <button class="btn btn-outline-danger" @onclick="ShowAddFlagModal">
+        <span class="plus-icon"></span>
+    </button>
+</div>
 
 <table class="table">
     <thead>
